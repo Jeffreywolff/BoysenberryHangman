@@ -29,6 +29,8 @@ public class HangmanController {
         _scan.nextLine();
         chooseDifficulty();
         getRandomWord();
+        createCharArrayFromWord();
+        createUnknownCharArrayFromWord();
     }
 
     public void playGame(){
@@ -61,17 +63,14 @@ public class HangmanController {
         switch (_model.get_difficulty()){
             case 1:
                 _model.set_randomWord(easyWords[_random.nextInt(easyWords.length)]);
-                createCharArrayFromWord();
                 System.out.println(_model.get_randomWord());
                 break;
             case 2:
                 _model.set_randomWord(normalWords[_random.nextInt(normalWords.length)]);
-                createCharArrayFromWord();
                 System.out.println(_model.get_randomWord());
                 break;
             case 3:
                 _model.set_randomWord(hardWords[_random.nextInt(hardWords.length)]);
-                createCharArrayFromWord();
                 System.out.println(_model.get_randomWord());
                 break;
         }
@@ -84,7 +83,12 @@ public class HangmanController {
         System.out.println(randomWordCharList);
     }
 
-
+    public void createUnknownCharArrayFromWord(){
+        for (int i = 0;i < _model.get_randomWord().length();i++){
+            unknownWordList.add('_');
+        }
+        System.out.println(unknownWordList);
+    }
 
 
 
