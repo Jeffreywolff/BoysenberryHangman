@@ -9,7 +9,8 @@ public class HangmanController {
     private HangmanModel _model;
     private Scanner _scan;
     private Random _random;
-    public ArrayList<String> gameEasyWordsList = new ArrayList<String>();
+    public ArrayList<Character> randomWordCharList = new ArrayList<Character>();
+    public ArrayList<Character> unknownWordList = new ArrayList<Character>();
     public String[] easyWords = {"cars", "neon", "hello", "shark"};
     public String[] normalWords = {"harder", "metal", "clever", "big ounce"};
     public String[] hardWords = {"specially", "women", "catastrophic"};
@@ -19,9 +20,6 @@ public class HangmanController {
         _model = new HangmanModel();
         _scan = new Scanner(System.in);
         _random = new Random();
-
-
-
     }
 
     public void start() {
@@ -44,18 +42,17 @@ public class HangmanController {
         _model.set_difficulty(_scan.nextInt());
         switch (_model.get_difficulty()){
             case 1:
-                //_model.set_listChosen("EasyWordsList.txt");
-
                 System.out.println("Difficulty " + _model.get_difficulty() + " has been chosen.");
                 System.out.println("Easy word has been chosen!");
+                break;
             case 2:
-                //_model.set_listChosen("NormalWordsList.txt");
                 System.out.println("Difficulty " + _model.get_difficulty() + " has been chosen.");
-
+                break;
             case 3:
-                //_model.set_listChosen("HardWordsList.txt");
                 System.out.println("Difficulty " + _model.get_difficulty() + " has been chosen.");
-
+                break;
+            default:
+                System.out.println("invalid");
         }
     }
 
@@ -64,13 +61,30 @@ public class HangmanController {
         switch (_model.get_difficulty()){
             case 1:
                 _model.set_randomWord(easyWords[_random.nextInt(easyWords.length)]);
+                createCharArrayFromWord();
                 System.out.println(_model.get_randomWord());
+                break;
             case 2:
                 _model.set_randomWord(normalWords[_random.nextInt(normalWords.length)]);
+                createCharArrayFromWord();
+                System.out.println(_model.get_randomWord());
+                break;
             case 3:
                 _model.set_randomWord(hardWords[_random.nextInt(hardWords.length)]);
+                createCharArrayFromWord();
+                System.out.println(_model.get_randomWord());
+                break;
         }
     }
+
+    public void createCharArrayFromWord(){
+        for (int i = 0; i<_model.get_randomWord().length(); i++){
+            randomWordCharList.add(_model.get_randomWord().charAt(i));
+        }
+        System.out.println(randomWordCharList);
+    }
+
+
 
 
 
