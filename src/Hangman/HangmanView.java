@@ -43,7 +43,13 @@ public class HangmanView {
         System.out.println("Enter Number Here: ");
     }
 
+    public static void printCongratulations(){
+        System.out.println("You have guessed the correct word, Congratulations!");
+    }
 
+    public static void printIncorrectInput(){
+        System.out.println("Sorry, but your input is not correct.");
+    }
 
 
 

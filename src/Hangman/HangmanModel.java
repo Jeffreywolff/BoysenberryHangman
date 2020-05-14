@@ -50,11 +50,11 @@ public class HangmanModel {
 
     private String randomWord;
 
-    public void setrandomWord(String word){
+    public void setRandomWord(String word){
         this.randomWord = word;
     }
 
-    public String getrandomWord(){
+    public String getRandomWord(){
         return randomWord;
     }
 
