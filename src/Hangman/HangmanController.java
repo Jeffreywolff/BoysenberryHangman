@@ -38,25 +38,36 @@ public class HangmanController {
         while (true){
             System.out.println("Enter a word or a letter to guess");
             _model.setUserInput(_scan.nextLine());
-            isInputChar();
 
+            isInputChar();
+            if (_model.getIsChar() == false){
+                checkStringInputrandomWord();
+            }
         }
 
+    }
+
+    private void checkStringInputrandomWord() {
+        if (_model.getUserInput() == _model.getrandomWord()){
+            System.out.println("Congratulations, you have guessed the word");
+        }
+        else{
+            System.out.println("You have guessed the wrong word.");
+            _model.setFailedGuess(_model.getFailedGuess() + 1);
+        }
     }
 
     private void isInputChar() {
-        if (_model.getUserInput().length() > 1){
-            //Check if the word is randomWord
-            System.out.println(_model.getUserInput().length());
+        if (_model.getUserInput().length() > 1){//Check if the word is randomWord
+            _model.setIsChar(false);
         }
-        else if (_model.getUserInput().length() == 1){
-            // Check if letter is found in randomWordCharList
-            System.out.println("Is Char?");
+        else if (_model.getUserInput().length() == 1){ // Check if letter is found in randomWordCharList
+            _model.setIsChar(true);
         }
     }
 
 
-    public void chooseDifficulty() {
+    private void chooseDifficulty() {
         HangmanView.printDifficulty();
         _model.set_difficulty(_scan.nextInt());
         switch (_model.get_difficulty()){
@@ -75,7 +86,7 @@ public class HangmanController {
         }
     }
 
-    public void getRandomWord(){
+    private void getRandomWord(){
         switch (_model.get_difficulty()){
             case 1:
                 _model.setrandomWord(easyWords[_random.nextInt(easyWords.length)]);
@@ -92,14 +103,14 @@ public class HangmanController {
         }
     }
 
-    public void createCharArrayFromWord(){
+    private void createCharArrayFromWord(){
         for (int i = 0; i<_model.getrandomWord().length(); i++){
             randomWordCharList.add(_model.getrandomWord().charAt(i));
         }
         System.out.println(randomWordCharList);
     }
 
-    public void createUnknownCharArrayFromWord(){
+    private void createUnknownCharArrayFromWord(){
         for (int i = 0;i < _model.getrandomWord().length();i++){
             unknownWordList.add('_');
         }

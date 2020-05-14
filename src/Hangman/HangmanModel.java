@@ -68,4 +68,24 @@ public class HangmanModel {
         this.userInput = input;
     }
 
+    private boolean isChar;
+
+    public boolean getIsChar(){
+        return isChar;
+    }
+
+    public void setIsChar(boolean state){
+        this.isChar = state;
+    }
+
+
+    private int failedGuess;
+
+    public int getFailedGuess(){
+        return failedGuess;
+    }
+
+    public void setFailedGuess(int guess){
+        this.failedGuess = guess;
+    }
 }
