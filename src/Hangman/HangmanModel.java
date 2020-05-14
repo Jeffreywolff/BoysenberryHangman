@@ -50,11 +50,22 @@ public class HangmanModel {
 
     private String randomWord;
 
-    public void set_randomWord(String word){
+    public void setrandomWord(String word){
         this.randomWord = word;
     }
 
-    public String get_randomWord(){
+    public String getrandomWord(){
         return randomWord;
     }
+
+    private String userInput;
+
+    public String getUserInput(){
+        return userInput;
+    }
+
+    public void setUserInput(String input){
+        this.userInput = input;
+    }
+
 }
