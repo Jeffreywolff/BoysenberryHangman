@@ -1,34 +1,12 @@
 package Hangman;
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Scanner;
+
 
 public class HangmanModel {
 
-
-
-
-    private String _listChosen;
-
-    public void set_listChosen(String list){
-        this._listChosen = list;
-    }
-
-    public String get_listChosen(){
-        return _listChosen;
-    }
-
+    // A variable that keeps the users input of what difficulty is chosen.
     private int _difficulty;
-
-   // public void createList() throws FileNotFoundException {
- //       Scanner listScanner = new Scanner(new File(_listChosen));
-//
-  //      while (listScanner.hasNextLine()){
-    //        gameWordsList.add((listScanner.nextLine()));
-      //  }
-    //}
 
     public int get_difficulty(){
         return this._difficulty;
@@ -38,16 +16,7 @@ public class HangmanModel {
         this._difficulty = num;
     }
 
-    private int _randomNumber;
-
-    public void set_randomNumber(int num){
-        this._randomNumber = num;
-    }
-
-    public int get_randomNumber(){
-        return _randomNumber;
-    }
-
+    // A variable for the randomized word.
     private String randomWord;
 
     public void setRandomWord(String word){
@@ -58,6 +27,7 @@ public class HangmanModel {
         return randomWord;
     }
 
+    // Users input
     private String userInput;
 
     public String getUserInput(){
@@ -68,6 +38,7 @@ public class HangmanModel {
         this.userInput = input;
     }
 
+    // A variable that changes depending on the users input.
     private boolean isChar;
 
     public boolean getIsChar(){
@@ -78,8 +49,8 @@ public class HangmanModel {
         this.isChar = state;
     }
 
-
-    private int failedGuess;
+    // A variable that keeps track on how many incorrect guesses the user have done
+    private int failedGuess = 0;
 
     public int getFailedGuess(){
         return failedGuess;
@@ -88,4 +59,16 @@ public class HangmanModel {
     public void setFailedGuess(int guess){
         this.failedGuess = guess;
     }
+
+    // A boolean variable that saves either true or false if the user has won.
+    private boolean hasWon = false;
+
+    public boolean getHasWon(){
+        return hasWon;
+    }
+
+    public void setHasWon( boolean state){
+        this.hasWon = state;
+    }
+
 }

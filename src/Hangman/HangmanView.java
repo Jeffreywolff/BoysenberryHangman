@@ -12,10 +12,10 @@ public class HangmanView {
         try{
             for (int i = 0; i < timesToRepeat; i++){
                 for (int j = 0; j < numberOfDots; j++){
-                    System.out.println(".");
+                    System.out.print(".");
                     Thread.sleep(500L);
                 }
-                System.out.println("\b\b\b\b\b");
+                System.out.print("\b\b\b\b\b");
             }
         }   catch (Exception ex){
             System.out.println("Thread died with the exception: " + ex);
@@ -51,6 +51,42 @@ public class HangmanView {
         System.out.println("Sorry, but your input is not correct.");
     }
 
+    public static void printStartGameSequence(){
+        System.out.println("Let the game begin!");
+    }
+
+    public static void printEnterInput(){
+        System.out.println("Enter a word or a letter to guess");
+    }
+
+    public static void printPlayAgain() {
+        System.out.println("Do you want to play again?");
+        System.out.println("(1), Yes, please play again.");
+        System.out.println("(2), no exit this piece of shit of a program.");
+    }
+
+    public static void printNewLines(){
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+    }
 
 
+    public static void exitMessage() {
+        System.out.println("Goodbye, have a good day!");
+    }
+
+    public static void printGameOverMessage() {
+        System.out.println("You have guessed to many times, the man is dead!");
+    }
+
+    public static void printContainedInWord() {
+        System.out.println("The letter is contained in the secret word");
+    }
+
+    public static void printIsNotContainedInWord() {
+        System.out.println("That letter is not contained in the word");
+    }
+
+    public static void printDifficultyChosen(){
+
+    }
 }
