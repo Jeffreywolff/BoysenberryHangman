@@ -5,6 +5,15 @@ import java.util.ArrayList;
 
 public class HangmanModel {
 
+    public ArrayList<Character> randomWordCharList = new ArrayList<Character>();
+    public ArrayList<Character> unknownWordList = new ArrayList<Character>();
+    public ArrayList<Character> incorrectCharList = new ArrayList<Character>();
+    public String[] easyWords = {"cars", "neon", "hello", "shark", "men"};
+    public String[] normalWords = {"harder", "metal", "clever", "streets"};
+    public String[] hardWords = {"specially", "women", "catastrophic"};
+
+
+
     // A variable that keeps the users input of what difficulty is chosen.
     private int _difficulty;
 
