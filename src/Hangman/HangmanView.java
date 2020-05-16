@@ -43,6 +43,9 @@ public class HangmanView {
         System.out.println("Press 'Enter' to continue");
     }
 
+    /**
+     * Prints a difficulty promt and alternatives to choose
+     */
     public static void printDifficulty(){
         System.out.println("Choose a level of Difficulty: 'Enter a Number' ");
         System.out.println("(1) Easy");
@@ -51,6 +54,9 @@ public class HangmanView {
         System.out.println("Enter Number Here: ");
     }
 
+    /**
+     * Prints a congratulations message
+     */
     public static void printCongratulations(){
         System.out.println("You have guessed the correct word, Congratulations!");
     }
