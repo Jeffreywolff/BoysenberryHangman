@@ -82,20 +82,32 @@ public class HangmanView {
         System.out.println("Enter a word or a letter to guess");
     }
 
+    /**
+     * Prints out a question and alternatives if you want to play again
+     */
     public static void printPlayAgain() {
         System.out.println("Do you want to play again?");
         System.out.println("(1), Yes, please play again.");
         System.out.println("(2), No, exit this piece of shit of a program.");
     }
 
+    /**
+     * Prints out new lines to make it look like the terminal is cleared
+     */
     public static void printNewLines(){
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 
+    /**
+     * Prints out a exit message
+     */
     public static void exitMessage() {
         System.out.println("Goodbye, have a good day!");
     }
 
+    /**
+     * Prints out a game over message if the player has lost
+     */
     public static void printGameOverMessage() {
         System.out.println("You have guessed to many times, the man is dead!");
     }
