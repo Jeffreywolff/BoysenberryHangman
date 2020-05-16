@@ -85,7 +85,7 @@ public class HangmanController {
      */
     private void restartGame() {
         HangmanView.printPlayAgain();
-        int userChoice = _scan.nextInt();
+        int userChoice = getIntegerInput();
         switch (userChoice){
             case 1:
                 HangmanView.printNewLines();
@@ -108,6 +108,7 @@ public class HangmanController {
         _model.setIsChar(false);
         _model.set_difficulty(0);
         _model.setUserInput("");
+        _model.incorrectCharList.clear();
     }
 
     /**
@@ -180,7 +181,7 @@ public class HangmanController {
     private void chooseDifficulty() {
         HangmanView.printDifficulty();
         while (true) {
-            getIntegerInput();
+            _model.set_difficulty(getIntegerInput());
             _scan.nextLine();
             if (isInputOutOfBounds()) {
                 HangmanView.printDifficultyInterval();
@@ -248,10 +249,11 @@ public class HangmanController {
     /**
      * This method makes sure that nothing but numbers is entered when choosing difficulty.
      */
-    private void getIntegerInput(){
+    private int getIntegerInput(){
+        int input;
         while(true) {
             try {
-                 _model.set_difficulty(_scan.nextInt());
+                 input = _scan.nextInt();
                 break;
             }
             catch (Exception InputMismatchException) {
@@ -259,6 +261,7 @@ public class HangmanController {
                 _scan.next();
             }
         }
+        return input;
     }
 
     /**

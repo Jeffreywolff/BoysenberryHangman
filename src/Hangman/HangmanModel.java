@@ -11,7 +11,7 @@ public class HangmanModel {
     public ArrayList<Character> incorrectCharList = new ArrayList<>();
     public String[] easyWords = {"cars", "neon", "hello", "shark", "men"};
     public String[] normalWords = {"harder", "metal", "clever", "streets"};
-    public String[] hardWords = {"specially", "women", "catastrophic"};
+    public String[] hardWords = {"specially", "women", "catastrophic", "hypernervokustiskadiafragmakontravibrationer"};
 
     // Sounds filepath. CHANGE THE PATH HERE IF YOU HAVE DOWNLOADED THE CODE!!!
     public String correctSoundFilePath = "C:\\Users\\Jeffrey.wolff\\Documents\\GitHub\\BoysenberryHangman\\" +
