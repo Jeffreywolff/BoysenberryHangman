@@ -68,7 +68,6 @@ public class HangmanView {
         System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
     }
 
-
     public static void exitMessage() {
         System.out.println("Goodbye, have a good day!");
     }
@@ -89,8 +88,4 @@ public class HangmanView {
         System.out.println("Sorry, but that number is out of bounds!");
         System.out.println("Please enter a number between 1 - 3!");
     }
-
-
-
-
 }

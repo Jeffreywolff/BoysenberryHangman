@@ -17,13 +17,20 @@ public class HangmanController {
     private Random _random;
 
 
-
+    /**
+     * This is the first method that is called and it creates associations with the other classes in the package
+     * It creates the classes and names them with easier names
+     */
     public HangmanController(){
         _model = new HangmanModel();
         _scan = new Scanner(System.in);
         _random = new Random();
     }
 
+    /**
+     * starts with printing out welcome messages and rukes taken from the HangmanView Class
+     * Calls the classes methods in order to play the games.
+     */
     public void start() {
         HangmanView.printWelcome();
         HangmanView.gameRules();
@@ -35,6 +42,10 @@ public class HangmanController {
         playGame();
     }
 
+    /**
+     * Checks if the player has won or has lost.
+     * It asks the player for its input and then calls methods to check the input
+     */
     public void playGame(){
         HangmanView.printStartGameSequence();
         while (true){
@@ -67,6 +78,11 @@ public class HangmanController {
         restartGame();
     }
 
+    /**
+     * This method asks the player if he/her want to play again
+     * It then calls a method to resets all necessary variables
+     * After it has reset the variables it calls the start method again
+     */
     private void restartGame() {
         HangmanView.printPlayAgain();
         int userChoice = _scan.nextInt();
@@ -217,7 +233,7 @@ public class HangmanController {
             AudioPlayer.player.start(audio);
         }
         catch (Exception e){
-            JOptionPane.showMessageDialog(null,"Error");
+            JOptionPane.showMessageDialog(null,"Can't find file or it is wrong format");
         }
     }
 
@@ -230,7 +246,7 @@ public class HangmanController {
             AudioPlayer.player.start(audio);
         }
         catch (Exception e){
-            JOptionPane.showMessageDialog(null,"Error");
+            JOptionPane.showMessageDialog(null,"Can't find file or it is wrong format");
         }
     }
 

@@ -5,17 +5,21 @@ import java.util.ArrayList;
 
 public class HangmanModel {
 
+    // Arrays and Arraylists that holds the letters of the words and holds the words.
     public ArrayList<Character> randomWordCharList = new ArrayList<>();
     public ArrayList<Character> unknownWordList = new ArrayList<>();
     public ArrayList<Character> incorrectCharList = new ArrayList<>();
     public String[] easyWords = {"cars", "neon", "hello", "shark", "men"};
     public String[] normalWords = {"harder", "metal", "clever", "streets"};
     public String[] hardWords = {"specially", "women", "catastrophic"};
+
+    // Sounds filepath. CHANGE THE PATH HERE IF YOU HAVE DOWNLOADED THE CODE!!!
     public String correctSoundFilePath = "C:\\Users\\Jeffrey.wolff\\Documents\\GitHub\\BoysenberryHangman\\" +
             "src\\Sounds\\CorrectSound.wav";
     public String incorrectSoundFilePath = "C:\\Users\\Jeffrey.wolff\\Documents\\GitHub\\BoysenberryHangman\\" +
             "src\\Sounds\\incorrectSound.wav";
 
+    // An Array that keeps the ascii art of Hangman
     public String[] HangmanImages = {" +---+\n" +
             "  |   |\n" +
             "      |\n" +
