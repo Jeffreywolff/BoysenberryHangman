@@ -159,6 +159,11 @@ public class HangmanController {
         }
     }
 
+    /**
+     * This method checks if the input by the player is a letter or a word by comparing its length
+     * if the input is greater than 1 it's a word
+     * if the input is equal to 1 it is a letter
+     */
     private void isInputChar() {
         if (_model.getUserInput().length() > 1){//Check if the user input is a word/string
             _model.setIsChar(false);
@@ -168,6 +173,10 @@ public class HangmanController {
         }
     }
 
+    /**
+     * This method is for choosing difficulty of the words
+     * Once a difficulty is chosen the program will set the choice in a variable in the model class
+     */
     private void chooseDifficulty() {
         HangmanView.printDifficulty();
         while (true) {
@@ -182,6 +191,10 @@ public class HangmanController {
         System.out.println("Difficulty " + _model.get_difficulty() + " have been chosen!");
     }
 
+    /**
+     * This method chooses a random word from the difficulty chosen by randomising a number based on
+     * the length of the arrays in the model class. The random word will be set to the index of the list
+     */
     private void getRandomWord(){
         switch (_model.get_difficulty()){
             case 1:
@@ -196,6 +209,10 @@ public class HangmanController {
         }
     }
 
+    /**
+     * This method populates an arraylist by looping through the random word.
+     * Each letter it is looped through is added to the arraylist.
+     */
     private void populate_randomWordCharList(){
         _model.randomWordCharList.clear();
         for (int i = 0; i<_model.getRandomWord().length(); i++){
