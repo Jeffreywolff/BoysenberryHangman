@@ -2,12 +2,18 @@ package Hangman;
 
 public class HangmanView {
 
+    /**
+     * Print a welcome message in the terminal
+     */
     public static void printWelcome(){
         System.out.println("Starting");
         printDots();
         System.out.println("Welcome to the Hangman game!");
     }
 
+    /**
+     * Prints dots a number of times in the terminal
+     */
     private static void printDots(){
         try{
             for (int i = 0; i < 3; i++){
@@ -22,6 +28,9 @@ public class HangmanView {
         }
     }
 
+    /**
+     * Prints the games rules
+     */
     public static void gameRules(){
         System.out.println("Here is the rules of the game: \n");
         System.out.println("This is The Hangman Game, where a random word is chosen and you will have ");
