@@ -61,14 +61,23 @@ public class HangmanView {
         System.out.println("You have guessed the correct word, Congratulations!");
     }
 
+    /**
+     * Prints a in error message if input is incorrect
+     */
     public static void printIncorrectInput(){
         System.out.println("Sorry, but your input is not correct.");
     }
 
+    /**
+     * Prints a message that alerts the player the guessing will begin
+     */
     public static void printStartGameSequence(){
         System.out.println("Let the game begin!");
     }
 
+    /**
+     * Prints out a message that the player can enter a letter or word
+     */
     public static void printEnterInput(){
         System.out.println("Enter a word or a letter to guess");
     }
