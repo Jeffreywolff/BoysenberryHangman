@@ -220,6 +220,10 @@ public class HangmanController {
         }
     }
 
+    /**
+     * This method adds an underscore to each letter there is in the random word by
+     * looping through the words length
+     */
     private void populate_unknownWordList(){
         _model.unknownWordList.clear();
         for (int i = 0;i < _model.getRandomWord().length();i++){
@@ -228,6 +232,10 @@ public class HangmanController {
         System.out.println(_model.unknownWordList);
     }
 
+    /**
+     * This method checks if the unknownWordList contains any underscores
+     * @return Depending on what the outcome is, it will either return true or false
+     */
     private boolean isWordComplete(){
         if (!_model.unknownWordList.contains('_')){
             return true;
@@ -237,6 +245,9 @@ public class HangmanController {
         }
     }
 
+    /**
+     * This method makes sure that nothing but numbers is entered when choosing difficulty.
+     */
     private void getIntegerInput(){
         while(true) {
             try {
@@ -250,6 +261,10 @@ public class HangmanController {
         }
     }
 
+    /**
+     * If the players answer is not in the interval of 1 to 3. This method says if it is or not
+     * @return true or false depending of what the player enters when choosing difficulty
+     */
     private boolean isInputOutOfBounds(){
         if(_model.get_difficulty() > 3 || _model.get_difficulty() < 1){
             return true;
@@ -259,6 +274,11 @@ public class HangmanController {
         }
     }
 
+    /**
+     * This method creates an audio class and plays a sound when called
+     * It plays a sound that mean you have done right
+     * @param filepath is where you put your filepath to the sound file
+     */
     private static void playCorrectSound(String filepath){
 
         InputStream music;
@@ -272,6 +292,11 @@ public class HangmanController {
         }
     }
 
+    /**
+     * This method creates an audio class and plays a sound when called
+     * It plays a sound that mean you have done right
+     * @param filepath is where you put your filepath to the sound file
+     */
     private static void playInCorrectSound(String filepath){
 
         InputStream music;
