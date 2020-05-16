@@ -64,6 +64,9 @@ public class HangmanModel {
             "      |\n" +
             "========="};
 
+    //Under each variable below there is methods that is getters and setters, that is used to set the value of the
+    //variables and get the value of the variables.
+
     // A variable that keeps the users input of what difficulty is chosen.
     private int _difficulty;
 
