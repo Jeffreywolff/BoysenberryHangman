@@ -4,14 +4,14 @@ public class HangmanView {
 
     public static void printWelcome(){
         System.out.println("Starting");
-        printDots(3, 3);
+        printDots();
         System.out.println("Welcome to the Hangman game!");
     }
 
-    private static void printDots(int numberOfDots, int timesToRepeat){
+    private static void printDots(){
         try{
-            for (int i = 0; i < timesToRepeat; i++){
-                for (int j = 0; j < numberOfDots; j++){
+            for (int i = 0; i < 3; i++){
+                for (int j = 0; j < 3; j++){
                     System.out.print(".");
                     Thread.sleep(500L);
                 }
@@ -19,7 +19,6 @@ public class HangmanView {
             }
         }   catch (Exception ex){
             System.out.println("Thread died with the exception: " + ex);
-            return;
         }
     }
 
@@ -62,7 +61,7 @@ public class HangmanView {
     public static void printPlayAgain() {
         System.out.println("Do you want to play again?");
         System.out.println("(1), Yes, please play again.");
-        System.out.println("(2), no exit this piece of shit of a program.");
+        System.out.println("(2), No, exit this piece of shit of a program.");
     }
 
     public static void printNewLines(){
@@ -86,7 +85,12 @@ public class HangmanView {
         System.out.println("That letter is not contained in the word");
     }
 
-    public static void printDifficultyChosen(){
-
+    public static void printDifficultyInterval() {
+        System.out.println("Sorry, but that number is out of bounds!");
+        System.out.println("Please enter a number between 1 - 3!");
     }
+
+
+
+
 }

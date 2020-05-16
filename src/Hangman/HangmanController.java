@@ -1,5 +1,12 @@
 package Hangman;
 
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+
+import javax.swing.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -37,13 +44,18 @@ public class HangmanController {
             }
             else if (_model.getFailedGuess() > 6){
                 HangmanView.printGameOverMessage();
+                break;
             }
-            else if (wordComplete()){
+            else if (isWordComplete()){
                 HangmanView.printCongratulations();
                 break;
             }
+            if (_model.getFailedGuess() > 0){
+                System.out.println(_model.HangmanImages[_model.getFailedGuess()-1]);
+            }
+
             HangmanView.printEnterInput();
-            _model.setUserInput(_scan.nextLine());
+            _model.setUserInput(_scan.nextLine().toLowerCase());
             isInputChar();
             if (!_model.getIsChar()){
                 checkStringInputRandomWord();
@@ -89,9 +101,11 @@ public class HangmanController {
                 }
             }
             System.out.println(_model.unknownWordList);
+            playCorrectSound(_model.correctSoundFilePath);
         }
         else{
             HangmanView.printIsNotContainedInWord();
+            playInCorrectSound(_model.incorrectSoundFilePath);
             _model.incorrectCharList.add(_model.getUserInput().charAt(0));
             System.out.println("Incorrect letters guessed: " + _model.incorrectCharList);
             _model.setFailedGuess(_model.getFailedGuess() + 1);
@@ -101,11 +115,12 @@ public class HangmanController {
 
     private void checkStringInputRandomWord() {
         if (_model.getUserInput().equals(_model.getRandomWord())){
-            HangmanView.printCongratulations();
+            playCorrectSound(_model.correctSoundFilePath);
             _model.setHasWon(true);
         }
         else{
             HangmanView.printIncorrectInput();
+            playInCorrectSound(_model.incorrectSoundFilePath);
             _model.setFailedGuess(_model.getFailedGuess() + 1);
         }
     }
@@ -121,8 +136,15 @@ public class HangmanController {
 
     private void chooseDifficulty() {
         HangmanView.printDifficulty();
-        _model.set_difficulty(_scan.nextInt());
-        _scan.nextLine();
+        while (true) {
+            getIntegerInput();
+            _scan.nextLine();
+            if (isInputOutOfBounds()) {
+                HangmanView.printDifficultyInterval();
+            } else {
+                break;
+            }
+        }
         System.out.println("Difficulty " + _model.get_difficulty() + " have been chosen!");
     }
 
@@ -130,15 +152,12 @@ public class HangmanController {
         switch (_model.get_difficulty()){
             case 1:
                 _model.setRandomWord(_model.easyWords[_random.nextInt(_model.easyWords.length)]);
-                System.out.println(_model.getRandomWord());
                 break;
             case 2:
                 _model.setRandomWord(_model.normalWords[_random.nextInt(_model.normalWords.length)]);
-                System.out.println(_model.getRandomWord());
                 break;
             case 3:
                 _model.setRandomWord(_model.hardWords[_random.nextInt(_model.hardWords.length)]);
-                System.out.println(_model.getRandomWord());
                 break;
         }
     }
@@ -148,7 +167,6 @@ public class HangmanController {
         for (int i = 0; i<_model.getRandomWord().length(); i++){
             _model.randomWordCharList.add(_model.getRandomWord().charAt(i));
         }
-        System.out.println(_model.randomWordCharList);
     }
 
     private void populate_unknownWordList(){
@@ -159,8 +177,61 @@ public class HangmanController {
         System.out.println(_model.unknownWordList);
     }
 
-    private boolean wordComplete(){
-        return !_model.unknownWordList.contains('_');
+    private boolean isWordComplete(){
+        if (!_model.unknownWordList.contains('_')){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private void getIntegerInput(){
+        while(true) {
+            try {
+                 _model.set_difficulty(_scan.nextInt());
+                break;
+            }
+            catch (Exception InputMismatchException) {
+                System.out.println("That's an invalid input, please try again!");
+                _scan.next();
+            }
+        }
+    }
+
+    private boolean isInputOutOfBounds(){
+        if(_model.get_difficulty() > 3 || _model.get_difficulty() < 1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private static void playCorrectSound(String filepath){
+
+        InputStream music;
+        try{
+            music = new FileInputStream(new File(filepath));
+            AudioStream audio = new AudioStream(music);
+            AudioPlayer.player.start(audio);
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Error");
+        }
+    }
+
+    private static void playInCorrectSound(String filepath){
+
+        InputStream music;
+        try{
+            music = new FileInputStream(new File(filepath));
+            AudioStream audio = new AudioStream(music);
+            AudioPlayer.player.start(audio);
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,"Error");
+        }
     }
 
 }

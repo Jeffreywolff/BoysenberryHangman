@@ -5,14 +5,60 @@ import java.util.ArrayList;
 
 public class HangmanModel {
 
-    public ArrayList<Character> randomWordCharList = new ArrayList<Character>();
-    public ArrayList<Character> unknownWordList = new ArrayList<Character>();
-    public ArrayList<Character> incorrectCharList = new ArrayList<Character>();
+    public ArrayList<Character> randomWordCharList = new ArrayList<>();
+    public ArrayList<Character> unknownWordList = new ArrayList<>();
+    public ArrayList<Character> incorrectCharList = new ArrayList<>();
     public String[] easyWords = {"cars", "neon", "hello", "shark", "men"};
     public String[] normalWords = {"harder", "metal", "clever", "streets"};
     public String[] hardWords = {"specially", "women", "catastrophic"};
+    public String correctSoundFilePath = "C:\\Users\\Jeffrey.wolff\\Documents\\GitHub\\BoysenberryHangman\\" +
+            "src\\Sounds\\CorrectSound.wav";
+    public String incorrectSoundFilePath = "C:\\Users\\Jeffrey.wolff\\Documents\\GitHub\\BoysenberryHangman\\" +
+            "src\\Sounds\\incorrectSound.wav";
 
-
+    public String[] HangmanImages = {" +---+\n" +
+            "  |   |\n" +
+            "      |\n" +
+            "      |\n" +
+            "      |\n" +
+            "      |\n" +
+            "=========", "  +---+\n" +
+            "  |   |\n" +
+            "  O   |\n" +
+            "      |\n" +
+            "      |\n" +
+            "      |\n" +
+            "=========", "  +---+\n" +
+            "  |   |\n" +
+            "  O   |\n" +
+            "  |   |\n" +
+            "      |\n" +
+            "      |\n" +
+            "=========", "  +---+\n" +
+            "  |   |\n" +
+            "  O   |\n" +
+            " /|   |\n" +
+            "      |\n" +
+            "      |\n" +
+            "=========", "  +---+\n" +
+            "  |   |\n" +
+            "  O   |\n" +
+            " /|\\  |\n" +
+            "      |\n" +
+            "      |\n" +
+            "=========", "  +---+\n" +
+            "  |   |\n" +
+            "  O   |\n" +
+            " /|\\  |\n" +
+            " /    |\n" +
+            "      |\n" +
+            "=========", "  +---+\n" +
+            "  |   |\n" +
+            "  O   |\n" +
+            " /|\\  |\n" +
+            " / \\  |\n" +
+            "      |\n" +
+            "========="};
 
     // A variable that keeps the users input of what difficulty is chosen.
     private int _difficulty;
