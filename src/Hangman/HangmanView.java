@@ -112,14 +112,23 @@ public class HangmanView {
         System.out.println("You have guessed to many times, the man is dead!");
     }
 
+    /**
+     * Prints out a hint
+     */
     public static void printContainedInWord() {
         System.out.println("The letter is contained in the secret word");
     }
 
+    /**
+     * Prints out a hint
+     */
     public static void printIsNotContainedInWord() {
         System.out.println("That letter is not contained in the word");
     }
 
+    /**
+     * Prints out what interval you can choose between when choosing difficulty
+     */
     public static void printDifficultyInterval() {
         System.out.println("Sorry, but that number is out of bounds!");
         System.out.println("Please enter a number between 1 - 3!");
