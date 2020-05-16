@@ -98,6 +98,9 @@ public class HangmanController {
         start();
     }
 
+    /**
+     * This method resets all necessary variables to replay the game.
+     */
     private void resetVariables() {
         _model.setFailedGuess(0);
         _model.setHasWon(false);
@@ -107,6 +110,15 @@ public class HangmanController {
         _model.setUserInput("");
     }
 
+    /**
+     * This method loops through the words letters and looks if the letter the
+     * player has given is contained in the word. If the letter is contained it will add the letter to a list at the
+     * same place it was in the word. So if you have the same letter twice in the word the method will add the
+     * letter to all the places where it is found in the word in their rightful position in the list.
+     * It will also call the sound method if you have guessed right or wrong.
+     * If the player have guessed wrong the method will add +1 to the FaultGuesses variable
+     *
+     */
     private void checkCharValidInput() {
         if (_model.randomWordCharList.contains(_model.getUserInput().charAt(0))){ //Checks if the Arraylist contains user char
             HangmanView.printContainedInWord();//Confirms the above
@@ -129,6 +141,12 @@ public class HangmanController {
         }
     }
 
+    /**
+     * If the player/user try to guess a whole word it will check if it is equals to the secret word
+     * If it is it will set the boolean variable to true and the method playGame will exit it's while loop
+     * Else if the word guessed is wrong the FaultGuessing variable will get +1 added
+     * It will play a sound if the player has guessed right or wrong.
+     */
     private void checkStringInputRandomWord() {
         if (_model.getUserInput().equals(_model.getRandomWord())){
             playCorrectSound(_model.correctSoundFilePath);
